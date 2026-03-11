@@ -2,37 +2,32 @@
 
 A [Model Context Protocol](https://modelcontextprotocol.io) server for the [Railway](https://railway.com) platform, hosted on Cloudflare Workers.
 
-Connect it to Claude, Cursor, or any MCP-compatible client by simply adding the URL — no local setup required.
+Connect it to Claude, Cursor, or any MCP-compatible client by simply adding the URL. No local setup required.
 
 ## Quick Start
 
-### Use the hosted version
-
-Add this URL as a remote MCP server in your client:
+Add this URL as a remote MCP server in Claude, Cursor, or any MCP client:
 
 ```
-https://railway-mcp.<your-subdomain>.workers.dev/mcp
+https://railway-mcp.maganuriyev.workers.dev/mcp
 ```
 
-When prompted for authentication, paste your Railway API token as the OAuth client secret.
+When prompted for authentication, enter your Railway API token. Generate one at: https://railway.com/account/tokens
 
-Generate a token at: https://railway.com/account/tokens
+That's it. No local setup, no installation.
 
 ### Deploy your own
 
+If you want to self-host:
+
 1. Clone and install:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/railway-mcp.git
+   git clone https://github.com/MahammadNuriyev62/railway-mcp.git
    cd railway-mcp
    npm install
    ```
 
-2. (Optional) Set a default Railway token:
-   ```bash
-   npx wrangler secret put RAILWAY_API_TOKEN
-   ```
-
-3. Deploy:
+2. Deploy:
    ```bash
    npm run deploy
    ```
@@ -79,7 +74,7 @@ Generate a token at: https://railway.com/account/tokens
 
 ## Authentication
 
-The server uses an OAuth PAT pass-through — your Railway API token is passed through the OAuth flow as a Bearer token. No real OAuth app is needed. The token is never stored on the server.
+The server uses an OAuth PAT pass-through. Your Railway API token is passed through the OAuth flow as a Bearer token. No real OAuth app is needed. The token is never stored on the server.
 
 ## Development
 
@@ -94,7 +89,7 @@ npm run typecheck
 npm run deploy
 ```
 
-Create a `.dev.vars` file with your Railway token for local development:
+For local development, create a `.dev.vars` file so tools can call the Railway API:
 ```
-RAILWAY_API_TOKEN=your-token-here
+RAILWAY_API_TOKEN=<your-railway-token>
 ```
