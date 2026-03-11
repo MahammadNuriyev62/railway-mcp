@@ -1,6 +1,7 @@
 import { createMcpHandler } from "agents/mcp";
 import { createServer } from "./server.js";
 import {
+  handleAuthorize,
   handleRegister,
   handleToken,
   oauthMetadata,
@@ -54,8 +55,11 @@ export default {
       case "/.well-known/oauth-protected-resource":
         return corsJson(protectedResourceMetadata(baseUrl));
 
+      case "/authorize":
+        return handleAuthorize(request);
+
       case "/register":
-        return handleRegister();
+        return handleRegister(request);
 
       case "/token":
         return handleToken(request);
