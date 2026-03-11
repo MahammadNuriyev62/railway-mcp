@@ -1,0 +1,21 @@
+{
+  "name": "railway-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MCP server for Railway platform, hosted on Cloudflare Workers",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.25.2",
+    "agents": "0.3.10",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250617.0",
+    "typescript": "^5.7.3",
+    "wrangler": "^4.22.0"
+  }
+}
